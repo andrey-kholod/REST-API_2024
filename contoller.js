@@ -12,6 +12,17 @@ class Controller {
          res.status(400).json({error: e})
       }
    }
+
+   async findAll(req, res) {
+      try {
+         const users = await User.find({})
+
+         res.status(200).json(users)
+      }
+      catch(e) {
+         res.status(400).json({error: e})
+      }
+   }
 }
 
 export default new Controller()
